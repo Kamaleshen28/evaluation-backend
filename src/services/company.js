@@ -84,7 +84,9 @@ const updateCompanyDetail = async (body, idGiven) => {
   if(book.length === 0){
     throw new HttpError('Not Found', 404);
   }else{
-    return await company.update(body);
+    return await company.update(body, {    
+      where:{id:idGiven}
+    });
   }
 };
 
