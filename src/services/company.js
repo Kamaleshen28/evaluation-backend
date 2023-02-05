@@ -39,7 +39,9 @@ const alignCompanyData = async (data) => {
     ceo:data.ceo,
     numberEmployees:data.numberEmployees
   };
-  //await  company.create(companyData) ;
+  try{
+    await  company.create(companyData) ;
+  }catch(error){}
   
 };
 
@@ -55,8 +57,10 @@ const getCompanyScore = async (data) => {
       idScore:ele.companyId,
       score:Math.floor(scoreValue),
     };
-    
-    //await score.create(companyObject) ;
+    try{
+      await score.create(companyObject) ;
+    }catch(error){
+    }
   });
   
 };
